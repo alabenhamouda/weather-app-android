@@ -1,4 +1,6 @@
-package com.example.tp5.model
+package com.example.tp5.model.apiResponses
+
+import com.example.tp5.model.*
 
 data class WeatherResponse(
     val base: String,
