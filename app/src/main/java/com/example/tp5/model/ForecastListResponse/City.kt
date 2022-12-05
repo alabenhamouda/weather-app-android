@@ -3,8 +3,8 @@ package com.example.tp5.model.ForecastListResponse
 data class City(
     val coord: Coord,
     val country: String,
-    val id: Int,
+    val id: Double,
     val name: String,
-    val population: Int,
-    val timezone: Int
+    val population: Double,
+    val timezone: Double
 )

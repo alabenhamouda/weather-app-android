@@ -1,17 +1,17 @@
 package com.example.tp5.model.ForecastListResponse
 
 data class ForecastListItem(
-    val clouds: Int,
-    val deg: Int,
-    val dt: Int,
+    val clouds: Double,
+    val deg: Double,
+    val dt: Double,
     val feels_like: FeelsLike,
     val gust: Double,
-    val humidity: Int,
-    val pop: Int,
-    val pressure: Int,
+    val humidity: Double,
+    val pop: Double,
+    val pressure: Double,
     val speed: Double,
-    val sunrise: Int,
-    val sunset: Int,
+    val sunrise: Double,
+    val sunset: Double,
     val temp: Temp,
     val weather: List<Weather>
 )

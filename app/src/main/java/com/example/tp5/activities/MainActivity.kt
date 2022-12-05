@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
         val button : Button = findViewById(R.id.button)
         button.setOnClickListener{
             val intent = Intent(this@MainActivity, ForecastActivity::class.java)
-            intent.putExtra("place",currentLocation)
+            intent.putExtra("location",currentLocation)
             startActivity(intent)
         }
     }

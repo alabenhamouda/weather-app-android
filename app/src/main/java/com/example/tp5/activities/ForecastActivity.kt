@@ -13,19 +13,24 @@ import com.example.tp5.model.WeatherModel
 
 class ForecastActivity : AppCompatActivity() {
     private val model: WeatherViewModel by viewModels()
-    private lateinit var data : ArrayList<WeatherModel>
+    private var data : ArrayList<WeatherModel> = arrayListOf()
+    private var adapter : ForecastAdapter = ForecastAdapter(data)
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_forecast)
-        val location = intent.getStringExtra("location")
+        val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
+        recyclerView.layoutManager = LinearLayoutManager(this@ForecastActivity)
+        recyclerView.adapter = adapter
         model.weatherForecast.observe(this){
-            data = it
-            Log.d("deglaaaaaaaaaaa","fesfeeeeeeeeeeees")
-            val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
-            recyclerView.apply {
-                layoutManager = LinearLayoutManager(this@ForecastActivity)
-                adapter = ForecastAdapter(data)
+            if (it!=null){
+                adapter.setData(it)
+                recyclerView.adapter = adapter
+            }else{
+                Log.d("it", "it is null")
             }
         }
+        model.getWeatherForecast(model.location)
     }
 }
