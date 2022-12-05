@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:clickable="true"
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".activities.MainActivity">
@@ -35,48 +36,58 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="overcast clouds"
-        android:textSize="30sp"/>
+        android:textSize="30sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center">
+
         <TextView
             android:id="@+id/humidityLbl"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
+            android:text="Humidity"
             android:textColor="@color/black"
-            android:text="Humidity" />
+            android:textSize="20sp" />
+
         <TextView
             android:id="@+id/humidityValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:textColor="@color/black"
             android:layout_marginStart="10dp"
-            android:text="36" />
+            android:text="36"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center">
+
         <TextView
             android:id="@+id/pressureLbl"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
+            android:text="Pressure"
             android:textColor="@color/black"
-            android:text="Pressure" />
+            android:textSize="20sp" />
+
         <TextView
             android:id="@+id/pressureValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:textColor="@color/black"
             android:layout_marginStart="10dp"
-            android:text="1015" />
+            android:text="1015"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ForeCast"/>
 
 </LinearLayout>

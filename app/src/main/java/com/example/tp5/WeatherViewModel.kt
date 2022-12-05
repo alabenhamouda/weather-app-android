@@ -1,5 +1,6 @@
 package com.example.tp5
 
+import android.annotation.SuppressLint
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -14,6 +15,7 @@ class WeatherViewModel: ViewModel() {
     var location: String = "Tunis"
     set(value) {
         this.updateWeather(value)
+        this.getWeatherForecast(value)
     }
     val weather: MutableLiveData<WeatherModel> by lazy { MutableLiveData<WeatherModel>() }
 
@@ -45,6 +47,7 @@ class WeatherViewModel: ViewModel() {
         RetrofitHelper.RetrofitHelper.retrofitService.getForecast(location).enqueue(object:
             Callback<ForecastWeatherResponse> {
             override fun onResponse(call: Call<ForecastWeatherResponse>, response: Response<ForecastWeatherResponse>) {
+                Log.d("response successful :",response.isSuccessful.toString())
                 if (response.isSuccessful && response.body() != null) {
                     val forecastResponse: ForecastWeatherResponse = response.body()!!
                     val list = forecastResponse.list
@@ -62,8 +65,9 @@ class WeatherViewModel: ViewModel() {
                     weatherForecast.value = forecastList
                 }
             }
+            @SuppressLint("LongLogTag")
             override fun onFailure(call: Call<ForecastWeatherResponse>, t: Throwable?) {
-                Log.d("Failure", t.toString())
+                Log.d("Failure in getWeatherForecast", t.toString())
             }
         })
     }
