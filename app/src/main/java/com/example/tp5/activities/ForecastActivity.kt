@@ -3,6 +3,7 @@ package com.example.tp5.activities
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -32,5 +33,9 @@ class ForecastActivity : AppCompatActivity() {
             }
         }
         model.getWeatherForecast(model.location)
+        val button : Button = findViewById(R.id.ReturnButton)
+        button.setOnClickListener(){
+            finish()
+        }
     }
 }
